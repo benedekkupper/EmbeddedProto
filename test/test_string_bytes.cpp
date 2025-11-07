@@ -41,7 +41,7 @@
 #include <string.h>
 
 // EAMS message definitions
-#include <string_bytes.h>
+#include <string_bytes.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;

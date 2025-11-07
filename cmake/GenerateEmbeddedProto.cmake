@@ -48,7 +48,7 @@ function(generate_embedded_proto OUTPUT_VARIABLE)
 
         # Add the custom command to generate code for each proto file
         add_custom_command(
-            OUTPUT "${ABS_GENERATED_SRC_DIR}/${PROTO_NAME}.h"
+            OUTPUT "${ABS_GENERATED_SRC_DIR}/${PROTO_NAME}.pb.hpp"
             WORKING_DIRECTORY ${EMBEDDED_PROTO_GEN_PATH}
             COMMAND protoc
             ARGS
@@ -61,7 +61,7 @@ function(generate_embedded_proto OUTPUT_VARIABLE)
             VERBATIM
         )
         # Record the generated file path so the caller can consume it
-        list(APPEND GENERATED_FILES "${ABS_GENERATED_SRC_DIR}/${PROTO_NAME}.h")
+        list(APPEND GENERATED_FILES "${ABS_GENERATED_SRC_DIR}/${PROTO_NAME}.pb.hpp")
     endforeach()
 
     # Export the list of generated files to the caller (parent scope)

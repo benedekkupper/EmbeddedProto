@@ -27,12 +27,8 @@
     1627 LE, Hoorn
     the Netherlands
 #}
-/*
- *  This file is generated with Embedded Proto, PLEASE DO NOT EDIT!
- *  source: {{proto_file.descriptor.name}}
- */
-
-// This file is generated. Please do not edit!
+/*  This file is generated with Embedded Proto, PLEASE DO NOT EDIT!
+ *  source: {{proto_file.descriptor.name}} */
 #ifndef {{proto_file.get_header_guard()}}_H
 #define {{proto_file.get_header_guard()}}_H
 

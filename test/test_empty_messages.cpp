@@ -31,7 +31,7 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
-#include "empty_message.h"
+#include "empty_message.pb.hpp"
 
 #include <WireFormatter.h>
 #include <ReadBufferMock.h>

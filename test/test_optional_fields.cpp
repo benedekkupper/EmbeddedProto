@@ -35,7 +35,7 @@
 #include <WriteBufferMock.h>
 
 // EAMS message definitions
-#include <optional_fields.h>
+#include <optional_fields.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;

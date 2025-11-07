@@ -138,7 +138,7 @@ class ProtoFile:
     def get_dependencies(self):
         imported_dependencies = []
         if self.descriptor.dependency:
-            imported_dependencies = [os.path.splitext(dependency)[0] + ".h" for dependency in
+            imported_dependencies = [os.path.splitext(dependency)[0] + ".pb.hpp" for dependency in
                                      self.descriptor.dependency if "embedded_proto_options.proto" not in dependency]
         return imported_dependencies
 
