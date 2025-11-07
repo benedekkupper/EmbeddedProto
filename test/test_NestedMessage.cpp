@@ -40,7 +40,7 @@
 #include <array>
 
 // EAMS message definitions
-#include <nested_message.h>
+#include <nested_message.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;

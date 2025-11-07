@@ -39,8 +39,8 @@
 #include <array>
 
 // EAMS message definitions
-#include <include_other_files.h>
-#include <repeated_fields.h>
+#include <include_other_files.pb.hpp>
+#include <repeated_fields.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;

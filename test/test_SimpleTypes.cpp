@@ -39,7 +39,7 @@
 #include <string.h>
 
 // EAMS message definitions
-#include <simple_types.h>
+#include <simple_types.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;

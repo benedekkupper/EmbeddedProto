@@ -40,7 +40,7 @@
 #include <string.h>
 
 // EAMS message definitions
-#include <oneof_fields.h>
+#include <oneof_fields.pb.hpp>
 
 using ::testing::_;
 using ::testing::InSequence;
