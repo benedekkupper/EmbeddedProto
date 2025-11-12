@@ -54,7 +54,7 @@ namespace EmbeddedProto
       //! \see ::EmbeddedProto::ReadBufferInterface::get_size()
       uint32_t get_size() const override
       {
-        return write_index_;
+        return write_index_ - read_index_;
       }
 
       //! \see ::EmbeddedProto::ReadBufferInterface::get_max_size()

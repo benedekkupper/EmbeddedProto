@@ -157,7 +157,7 @@ class Field:
 class FieldBasic(Field):
     # A dictionary to convert the wire type into a default value.
     type_to_default_value = {FieldDescriptorProto.TYPE_DOUBLE:   "0.0",
-                             FieldDescriptorProto.TYPE_FLOAT:    "0.0",
+                             FieldDescriptorProto.TYPE_FLOAT:    "0.0f",
                              FieldDescriptorProto.TYPE_INT64:    "0",
                              FieldDescriptorProto.TYPE_UINT64:   "0U",
                              FieldDescriptorProto.TYPE_INT32:    "0",
@@ -379,11 +379,18 @@ class FieldEnum(Field):
 
         return type_name
 
+    def get_max_enum_value(self):
+        # Return the maximum value used by any of the enum items as a string. This is used to calculate the maximum serialized size.
+        max_number = self.definition.descriptor.value[0].number
+        for value in self.definition.descriptor.value[1:]:
+            if max_number < value.number:
+                max_number = value.number
+        return str(max_number)
     def get_type(self):
-        return "EmbeddedProto::enumeration<" + self.get_type_as_defined() + ">"
+        return "EmbeddedProto::enumeration<" + self.get_type_as_defined() + ", EmbeddedProto::WireFormatter::VarintSize(" + self.get_max_enum_value() + ")>"
 
     def get_short_type(self):
-        return "EmbeddedProto::enumeration<" + self.get_type_as_defined().split("::")[-1] + ">"
+        return "EmbeddedProto::enumeration<" + self.get_type_as_defined().split("::")[-1] + ", EmbeddedProto::WireFormatter::VarintSize(" + self.get_max_enum_value() + ")>"
 
     def get_default_value(self):
         return "static_cast<" + self.get_type_as_defined() + ">(0)"
